@@ -1,0 +1,11 @@
+ExitProcess
+CreateInternalProccessW
+CreateProccessW
+VirtualAlloc
+VirtualProtect
+MapViewOfFile
+UnmapViewOfFile
+WriteProcessMemory
+IsDebuggerPresent
+TerminateProcess
+IsProcessorFeaturePresent
