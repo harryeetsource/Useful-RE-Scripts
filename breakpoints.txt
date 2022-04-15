@@ -1,0 +1,1 @@
+SetBPX ExitProcess ; SetBPX TerminateProcess ; SetBPX WriteProcessMemory ; SetBPX CreateProcessInternalW ; SetBPX CreateProcessW ; SetBPX UnmapViewOfFile ; SetBPX MapViewOfFile ; SetBPX IsDebuggerPresent ; SetBPX CheckRemoteDebuggerPresent ; SetBPX GetProcessHeap ; SetBPX IsProcessorFeaturePresent ; SetBPX ShellExecuteExW ; SetBPX CreateFileW ; SetBPX WriteFileW
