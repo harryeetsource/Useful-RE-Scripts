@@ -45,6 +45,9 @@ $url22 = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
 $folder22 = "$env:temp\sysinternals"
 $url23 = "https://mh-nexus.de/downloads/HxDSetup.zip"
 $folder23 = "$env:temp\hxd"
+$url24 = "https://github.com/hasherezade/pe-sieve/releases/download/v0.3.4/pe-sieve64.exe"
+$folder24 = "$env:temp\PEsieve"
+
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -90,51 +93,50 @@ else {
 New-Item -Path "$env:temp\" -Name "procdump" -ItemType "directory"
 Invoke-WebRequest  $url9 -OutFile "$env:Temp\procdump\procdump.exe"
 }
-$folder10 = "$env:temp\IDA"
 if (Test-Path -Path $folder10) { Write-Host "IDA directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "IDA" -ItemType "directory"
-Invoke-WebRequest  $url10 -OutFile "$env:Temp\IDA\IDA.exe"} 
+    New-Item -Path "$env:temp\" -Name "IDA" -ItemType "directory"
+    Invoke-WebRequest  $url10 -OutFile "$env:Temp\IDA\IDA.exe"} 
 if (Test-Path -Path $folder11) { Write-Host "Depends directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "Depends" -ItemType "directory"
-Invoke-WebRequest  $url11 -OutFile "$env:Temp\Depends\Depends.zip"
-Expand-Archive -LiteralPath "$env:temp\depends\depends.zip" -DestinationPath "$env:temp\depends\depends\"} 
+    New-Item -Path "$env:temp\" -Name "Depends" -ItemType "directory"
+    Invoke-WebRequest  $url11 -OutFile "$env:Temp\Depends\Depends.zip"
+    Expand-Archive -LiteralPath "$env:temp\depends\depends.zip" -DestinationPath "$env:temp\depends\depends\"} 
 if (Test-Path -Path $folder12) { Write-Host "dnspy directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "dnspy" -ItemType "directory"
-Invoke-WebRequest  $url12 -OutFile "$env:Temp\dnspy\dnspy.zip"
-Expand-Archive -LiteralPath "$env:temp\dnspy\dnspy.zip" -DestinationPath "$env:temp\dnspy\dnspy\"} 
+    New-Item -Path "$env:temp\" -Name "dnspy" -ItemType "directory"
+    Invoke-WebRequest  $url12 -OutFile "$env:Temp\dnspy\dnspy.zip"
+    Expand-Archive -LiteralPath "$env:temp\dnspy\dnspy.zip" -DestinationPath "$env:temp\dnspy\dnspy\"} 
 if (Test-Path -Path $folder13) { Write-Host "Autoruns directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "autoruns" -ItemType "directory"
-Invoke-WebRequest  $url13 -OutFile "$env:Temp\autoruns\autoruns.zip"
-Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
+    New-Item -Path "$env:temp\" -Name "autoruns" -ItemType "directory"
+    Invoke-WebRequest  $url13 -OutFile "$env:Temp\autoruns\autoruns.zip"
+    Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
 if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
-Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
-Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
+    New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
+    Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
+    Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
 if (Test-Path -Path $folder15) { Write-Host "pecapture directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "pecapture" -ItemType "directory"
-Invoke-WebRequest  $url15 -OutFile "$env:Temp\pecapture\pecapture.zip"
-Expand-Archive -LiteralPath "$env:temp\pecapture\pecapture.zip" -DestinationPath "$env:temp\pecapture\pecapture\"}
+    New-Item -Path "$env:temp\" -Name "pecapture" -ItemType "directory"
+    Invoke-WebRequest  $url15 -OutFile "$env:Temp\pecapture\pecapture.zip"
+    Expand-Archive -LiteralPath "$env:temp\pecapture\pecapture.zip" -DestinationPath "$env:temp\pecapture\pecapture\"}
 if (Test-Path -Path $folder16) { Write-Host "filesplit directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "filesplit" -ItemType "directory"
-Invoke-WebRequest  $url16 -OutFile "$env:Temp\filesplit\filesplit.zip"
-Expand-Archive -LiteralPath "$env:temp\filesplit\filesplit.zip" -DestinationPath "$env:temp\filesplit\filesplit\"}
+    New-Item -Path "$env:temp\" -Name "filesplit" -ItemType "directory"
+    Invoke-WebRequest  $url16 -OutFile "$env:Temp\filesplit\filesplit.zip"
+    Expand-Archive -LiteralPath "$env:temp\filesplit\filesplit.zip" -DestinationPath "$env:temp\filesplit\filesplit\"}
 if (Test-Path -Path $folder17) { Write-Host "upx directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "upx" -ItemType "directory"
-Invoke-WebRequest  $url17 -OutFile "$env:Temp\upx\upx.zip"
-Expand-Archive -LiteralPath "$env:temp\upx\upx.zip" -DestinationPath "$env:temp\upx\upx\"} 
+    New-Item -Path "$env:temp\" -Name "upx" -ItemType "directory"
+    Invoke-WebRequest  $url17 -OutFile "$env:Temp\upx\upx.zip"
+    Expand-Archive -LiteralPath "$env:temp\upx\upx.zip" -DestinationPath "$env:temp\upx\upx\"} 
 if (Test-Path -Path $folder18 ) {Write-Host "Visual Studio directory already exists, skipping"}
 else {
-New-Item -Path "$env:temp\" -Name "visualstudio" -ItemType "directory"
-Invoke-WebRequest $url18 -OutFile "$env:temp\visualstudio\visualstudio.exe"
-Start-Process "$env:Temp\visualstudio\visualstudio.exe"}
+    New-Item -Path "$env:temp\" -Name "visualstudio" -ItemType "directory"
+    Invoke-WebRequest $url18 -OutFile "$env:temp\visualstudio\visualstudio.exe"
+    Start-Process "$env:Temp\visualstudio\visualstudio.exe"}
 if (Test-Path -Path $folder19 ) {Write-Host "DIE directory already exists, skipping"}
 else {
     New-Item -Path "$env:temp\" -Name "die" -ItemType "directory"
@@ -166,6 +168,10 @@ else{
     Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$env:temp\hxd\hxdinstall.exe"
     Start-Process "$env:temp\hxd\hxdinstall.exe"
 }
+if (Test-Path -Path $folder24) { Write-Host "PEsieve directory already exists, skipping" }
+else {
+New-Item -Path $folder24 -Name "PEsieve" -ItemType "directory"
+Invoke-WebRequest  $url24 -OutFile "$folder24\PEsieve\pesieve.exe"
 '@
 
 
@@ -175,4 +181,3 @@ $myencodedscript = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($
 Set-Content -Path "$currentlocation\script.ps1" -Value 'Start-Process Powershell "-enc'
 Add-Content -Path "$currentlocation\script.ps1" -Value $myencodedscript
 Add-Content -Path "$currentlocation\script.ps1" -Value '"'
-
