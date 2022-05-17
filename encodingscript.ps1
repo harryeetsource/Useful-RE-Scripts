@@ -1,7 +1,7 @@
 ﻿$myscript = @'
 $url1 =  "github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.3/PE-bear_0.5.5.3_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-04-11_01-01.zip"
+$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-05-14_20-23.zip"
 $folder2 = "$env:Temp\x64dbg"
 $url3 = "https://downloads.novirusthanks.org/files/portables/npe_portable.zip"
 $folder3 = "$env:Temp\NPE"
@@ -11,7 +11,7 @@ $url5 = "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghid
 $folder5 = "$env:temp\ghidra"
 $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
-$url7 = "https://github.com/ProcessHackerRepoTool/nightly-builds-mirror/releases/download/v3.0.4780/processhacker-3.0.4780-setup.exe"
+$url7 = "https://github.com/processhacker/processhacker/releases/download/v2.39/processhacker-2.39-setup.exe"
 $folder7 = "$env:temp\ProcHacker"
 $url8 = "https://www.7-zip.org/a/7z2107-x64.exe"
 $folder8 = "$env:temp\7z"
@@ -25,8 +25,8 @@ $url12 = "https://github.com/dnSpy/dnSpy/releases/download/v6.1.8/dnSpy-net-win6
 $folder12 = "$env:temp\dnspy"
 $url13 = "https://download.sysinternals.com/files/Autoruns.zip"
 $folder13 = "$env:temp\autoruns"
-$url14 = "https://gchq.github.io/CyberChef/CyberChef_v9.37.0.zip"
-$folder14 = "$env:temp\cyberchef"
+#$url14 = "https://gchq.github.io/CyberChef/CyberChef_v9.37.0.zip"
+#$folder14 = "$env:temp\cyberchef"
 $url15 = "https://downloads.novirusthanks.org/files/portables/pe_capture_portable.zip"
 $folder15 = "$env:temp\pecapture"
 $url16 = "https://downloads.novirusthanks.org/files/portables/file_splitter_joiner_portable.zip"
@@ -112,11 +112,11 @@ else {
     New-Item -Path "$env:temp\" -Name "autoruns" -ItemType "directory"
     Invoke-WebRequest  $url13 -OutFile "$env:Temp\autoruns\autoruns.zip"
     Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
-if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
-else {
-    New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
-    Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
-    Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
+#if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
+#else {
+   # New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
+    #Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
+   # Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
 if (Test-Path -Path $folder15) { Write-Host "pecapture directory already exists, skipping" }
 else {
     New-Item -Path "$env:temp\" -Name "pecapture" -ItemType "directory"
