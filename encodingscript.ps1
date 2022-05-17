@@ -39,8 +39,8 @@ $url19 = "https://github.com/horsicq/DIE-engine/releases/download/3.04/die_win64
 $folder19 = "$env:temp\die"
 $url20 = "https://github.com/processhacker/processhacker/archive/refs/heads/master.zip"
 $folder20 = "$env:temp\PHsource"
-$url21 = "https://github.com/PowerShell/PowerShell/releases/download/v7.2.2/PowerShell-7.2.2-win-x64.msi"
-$folder21 = "$env:appdata\Powershell"
+#$url21 = "https://github.com/PowerShell/PowerShell/releases/download/v7.2.2/PowerShell-7.2.2-win-x64.msi"
+#$folder21 = "$env:appdata\Powershell"
 $url22 = "https://download.sysinternals.com/files/SysinternalsSuite.zip"
 $folder22 = "$env:temp\sysinternals"
 $url23 = "https://mh-nexus.de/downloads/HxDSetup.zip"
@@ -149,8 +149,8 @@ else {
     Invoke-WebRequest $url20 -OutFile "$env:temp\PHsource\PHsource.zip"
     Expand-Archive -LiteralPath "$env:temp\PHsource\PHsource.zip" -DestinationPath "$env:temp\PHsource\"
 }
-if (Test-Path -Path $folder21) {Write-Host "Powershell directory exists skipping}
-else {
+#if (Test-Path -Path $folder21) {Write-Host "Powershell directory exists skipping}
+#else {
     New-Item -Path "$env:appdata\" -Name "powershell" -ItemType "directory"
     Invoke-WebRequest $url21 -Outfile "$env:appdata\powershell\powershell.msi"
     Start-Process "$env:appdata\powershell\powershell.msi"
