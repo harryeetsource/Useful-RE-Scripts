@@ -164,8 +164,7 @@ else {
 if (Test-Path -Path $folder23) {Write-Host "HxD already exists, skipping"}
 else{
     Invoke-WebRequest $url23 -OutFile "$env:temp\hxd\hxd.zip"
-    Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$env:temp\hxd\hxdinstall.exe"
-    Start-Process "$env:temp\hxd\hxdinstall.exe"
+    Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$env:temp\hxd\"
 }
 if (Test-Path -Path $folder24) { Write-Host "PEsieve directory already exists, skipping" }
 else {
