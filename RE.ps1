@@ -1,6 +1,6 @@
 $url1 =  "github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.3/PE-bear_0.5.5.3_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-05-14_20-23.zip"
+$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-05-18_12-39.zip"
 $folder2 = "$env:Temp\x64dbg"
 $url3 = "https://downloads.novirusthanks.org/files/portables/npe_portable.zip"
 $folder3 = "$env:Temp\NPE"
