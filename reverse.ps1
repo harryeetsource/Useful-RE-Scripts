@@ -10,7 +10,7 @@ $url5 = "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghid
 $folder5 = "$env:temp\ghidra"
 $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
-$url7 = "https://github.com/ProcessHackerRepoTool/nightly-builds-mirror/releases/download/v3.0.4706/processhacker-3.0.4706-setup.exe"
+$url7 = "https://sourceforge.net/projects/processhacker/files/processhacker2/processhacker-2.39-setup.exe/download"
 $folder7 = "$env:temp\ProcHacker"
 $url8 = "https://www.7-zip.org/a/7z2201-x64.exe"
 $folder8 = "$env:temp\7z"
@@ -48,7 +48,7 @@ Invoke-WebRequest $url2 -OutFile "$env:temp\x64dbg\x64dbg.zip"
 Expand-Archive -LiteralPath "$env:temp\x64dbg\x64dbg.zip" -DestinationPath "$env:temp\x64dbg\x64dbg\"}
 if (Test-Path -Path $folder3) { Write-Host "NPE directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "NPE" -ItemType "directory"
+New-Item -Path "$env:temp\" -Name "pwsh" -ItemType "directory"
 Invoke-WebRequest  $url3 -OutFile "$env:Temp\pwsh\pwsh.msi"
 Start-Process msiexec.exe /package "$env:Temp\pwsh\pwsh.msi" /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
