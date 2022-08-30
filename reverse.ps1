@@ -10,7 +10,7 @@ $url5 = "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghid
 $folder5 = "$env:temp\ghidra"
 $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
-$url7 = "https://sourceforge.net/projects/processhacker/files/processhacker2/processhacker-2.39-setup.exe/download"
+$url7 = "https://downloads.sourceforge.net/project/processhacker/processhacker2/processhacker-2.39-setup.exe?ts=gAAAAABjDqDO-lZp4_sXTiC0UBb3nDoYwpTXpOOHu6fk1b02mp_jp2NrScHdsNEMAdmtynCOw6ekSITLMFHpt-B3k-gEFnjf0w%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fprocesshacker%2Ffiles%2Fprocesshacker2%2Fprocesshacker-2.39-setup.exe%2Fdownload"
 $folder7 = "$env:temp\ProcHacker"
 $url8 = "https://www.7-zip.org/a/7z2201-x64.exe"
 $folder8 = "$env:temp\7z"
