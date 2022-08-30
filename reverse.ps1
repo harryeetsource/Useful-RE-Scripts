@@ -1,13 +1,13 @@
 ﻿$url1 =  "github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.3/PE-bear_0.5.5.3_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-03-26_14-14.zip"
+$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-04-11_01-01.zip"
 $folder2 = "$env:Temp\x64dbg"
 $url3 = "https://downloads.novirusthanks.org/files/portables/npe_portable.zip"
-$folder3 = "env:Temp\NPE"
+$folder3 = "$env:Temp\NPE"
 $url4 = "https://corretto.aws/downloads/latest/amazon-corretto-11-x64-windows-jdk.msi"
-$folder4 = "env:temp\coretto"
+$folder4 = "$env:temp\coretto"
 $url5 = "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip"
-$folder5 = "env:temp\ghidra"
+$folder5 = "$env:temp\ghidra"
 $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
 $url7 = "https://github.com/ProcessHackerRepoTool/nightly-builds-mirror/releases/download/v3.0.4706/processhacker-3.0.4706-setup.exe"
@@ -30,8 +30,12 @@ $url15 = "https://downloads.novirusthanks.org/files/portables/pe_capture_portabl
 $folder15 = "$env:temp\pecapture"
 $url16 = "https://downloads.novirusthanks.org/files/portables/file_splitter_joiner_portable.zip"
 $folder16 = "$env:temp\filesplit"
-$url17 ="https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip"
+$url17 = "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip"
 $folder17 = "$env:temp\upx"
+$url18 = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
+$folder18 = "$env:temp\visualstudio"
+$url19 = "https://github.com/horsicq/DIE-engine/releases/download/3.04/die_win64_portable_3.04.zip"
+$folder19 = "$env:temp\die"
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -117,3 +121,14 @@ else {
 New-Item -Path "$env:temp\" -Name "upx" -ItemType "directory"
 Invoke-WebRequest  $url17 -OutFile "$env:Temp\upx\upx.zip"
 Expand-Archive -LiteralPath "$env:temp\upx\upx.zip" -DestinationPath "$env:temp\upx\upx\"} 
+if (Test-Path -Path $folder18 ) {Write-Host "Visual Studio directory already exists, skipping"}
+else {
+New-Item -Path "$env:temp\" -Name "visualstudio" -ItemType "directory"
+Invoke-WebRequest $url18 -OutFile "$env:temp\visualstudio\visualstudio.exe"
+Start-Process "$env:Temp\visualstudio\visualstudio.exe"}
+if (Test-Path -Path $folder19 ) {Write-Host "DIE directory already exists, skipping"}
+else {
+    New-Item -Path "$env:temp\" -Name "die" -ItemType "directory"
+    Invoke-WebRequest $url19 -OutFile "$env:temp\die\die.zip"
+    Expand-Archive -LiteralPath "$env:temp\die\die.zip" -DestinationPath "$env:temp\die\"
+}
