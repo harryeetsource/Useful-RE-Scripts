@@ -1,9 +1,9 @@
 ﻿$url1 =  "github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.3/PE-bear_0.5.5.3_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-04-11_01-01.zip"
+$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-08-20_00-05.zip"
 $folder2 = "$env:Temp\x64dbg"
-$url3 = "https://downloads.novirusthanks.org/files/portables/npe_portable.zip"
-$folder3 = "$env:Temp\NPE"
+$url3 = "https://github.com/PowerShell/PowerShell/releases/download/v7.2.6/PowerShell-7.2.6-win-x64.msi"
+$folder3 = "$env:Temp\pwsh"
 $url4 = "https://corretto.aws/downloads/latest/amazon-corretto-11-x64-windows-jdk.msi"
 $folder4 = "$env:temp\coretto"
 $url5 = "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_10.1.2_build/ghidra_10.1.2_PUBLIC_20220125.zip"
@@ -12,10 +12,10 @@ $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
 $url7 = "https://github.com/ProcessHackerRepoTool/nightly-builds-mirror/releases/download/v3.0.4706/processhacker-3.0.4706-setup.exe"
 $folder7 = "$env:temp\ProcHacker"
-$url8 = "https://www.7-zip.org/a/7z2107-x64.exe"
+$url8 = "https://www.7-zip.org/a/7z2201-x64.exe"
 $folder8 = "$env:temp\7z"
-$url9 = "https://github.com/glmcdona/Process-Dump/releases/download/v2.1.1/pd64.exe"
-$folder9 = "$env:temp\pd64"
+$url9 = "https://github.com/hasherezade/mal_unpack/releases/download/0.9.5/mal_unpack64.zip"
+$folder9 = "$env:temp\malunpack"
 $url10 = "https://out7.hex-rays.com/files/idafree77_windows.exe"
 $folder10 = "$env:temp\IDA"
 $url11 = "https://www.dependencywalker.com/depends22_x64.zip"
@@ -26,10 +26,10 @@ $url13 = "https://download.sysinternals.com/files/Autoruns.zip"
 $folder13 = "$env:temp\autoruns"
 $url14 = "https://gchq.github.io/CyberChef/CyberChef_v9.37.0.zip"
 $folder14 = "$env:temp\cyberchef"
-$url15 = "https://downloads.novirusthanks.org/files/portables/pe_capture_portable.zip"
-$folder15 = "$env:temp\pecapture"
-$url16 = "https://downloads.novirusthanks.org/files/portables/file_splitter_joiner_portable.zip"
-$folder16 = "$env:temp\filesplit"
+$url15 = "https://github.com/hasherezade/hollows_hunter/releases/download/v0.3.4/hollows_hunter64.zip"
+$folder15 = "$env:temp\hollowshunter"
+$url16 = "https://github.com/hasherezade/pe_to_shellcode/releases/download/v1.1/pe2shc_1.1.zip"
+$folder16 = "$env:temp\pe2shc"
 $url17 = "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip"
 $folder17 = "$env:temp\upx"
 $url18 = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
@@ -49,8 +49,8 @@ Expand-Archive -LiteralPath "$env:temp\x64dbg\x64dbg.zip" -DestinationPath "$env
 if (Test-Path -Path $folder3) { Write-Host "NPE directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "NPE" -ItemType "directory"
-Invoke-WebRequest  $url3 -OutFile "$env:Temp\NPE\NPE.zip"
-Expand-Archive -LiteralPath "$env:temp\NPE\NPE.zip" -DestinationPath "$env:temp\NPE\NPE\"}
+Invoke-WebRequest  $url3 -OutFile "$env:Temp\pwsh\pwsh.msi"
+Start-Process msiexec.exe /package "$env:Temp\pwsh\pwsh.msi" /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
@@ -76,10 +76,11 @@ else {
 New-Item -Path "$env:temp\" -Name "7z" -ItemType "directory"
 Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe"
 Start-Process "$env:temp\7z\7zsetup.exe" }
-if (Test-Path -Path $folder9) { Write-Host "pd64 directory already exists, skipping" }
+if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "pd64" -ItemType "directory"
-Invoke-WebRequest  $url9 -OutFile "$env:Temp\pd64\pd64.exe"
+New-Item -Path "$env:temp\" -Name "malunpack" -ItemType "directory"
+Invoke-WebRequest  $url9 -OutFile "$env:Temp\malunpack\malunpack.zip"
+Expand-Archive -LiteralPath "$folder9\malunpack.zip" -DestinationPath "$folder9\malunpack\"
 }
 $folder10 = "$env:temp\IDA"
 if (Test-Path -Path $folder10) { Write-Host "IDA directory already exists, skipping" }
@@ -106,16 +107,16 @@ else {
 New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
 Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
 Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
-if (Test-Path -Path $folder15) { Write-Host "pecapture directory already exists, skipping" }
+if (Test-Path -Path $folder15) { Write-Host "hollowshunter directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "pecapture" -ItemType "directory"
-Invoke-WebRequest  $url15 -OutFile "$env:Temp\pecapture\pecapture.zip"
-Expand-Archive -LiteralPath "$env:temp\pecapture\pecapture.zip" -DestinationPath "$env:temp\pecapture\pecapture\"}
-if (Test-Path -Path $folder16) { Write-Host "filesplit directory already exists, skipping" }
+New-Item -Path "$env:temp\" -Name "hollowshunter" -ItemType "directory"
+Invoke-WebRequest  $url15 -OutFile "$folder15\hollowshunter.zip"
+Expand-Archive -LiteralPath "$folder15\hollowshunter.zip" -DestinationPath "$folder15\hollowshunter\"}
+if (Test-Path -Path $folder16) { Write-Host "pe2shc directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "filesplit" -ItemType "directory"
-Invoke-WebRequest  $url16 -OutFile "$env:Temp\filesplit\filesplit.zip"
-Expand-Archive -LiteralPath "$env:temp\filesplit\filesplit.zip" -DestinationPath "$env:temp\filesplit\filesplit\"}
+New-Item -Path "$env:temp\" -Name "pe2shc" -ItemType "directory"
+Invoke-WebRequest  $url16 -OutFile "$folder16\pe2shc.zip"
+Expand-Archive -LiteralPath "$folder16\pe2shc.zip" -DestinationPath "$folder16\pe2shc\"}
 if (Test-Path -Path $folder17) { Write-Host "upx directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "upx" -ItemType "directory"
