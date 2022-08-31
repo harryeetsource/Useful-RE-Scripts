@@ -36,6 +36,8 @@ $url18 = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-u
 $folder18 = "$env:temp\visualstudio"
 $url19 = "https://github.com/horsicq/DIE-engine/releases/download/3.04/die_win64_portable_3.04.zip"
 $folder19 = "$env:temp\die"
+$url20 = "https://github.com/activescott/lessmsi/releases/download/v1.10.0/lessmsi-v1.10.0.zip"
+$folder20 = "$env:temp\lessmsi"
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -132,4 +134,9 @@ else {
     New-Item -Path "$env:temp\" -Name "die" -ItemType "directory"
     Invoke-WebRequest $url19 -OutFile "$env:temp\die\die.zip"
     Expand-Archive -LiteralPath "$env:temp\die\die.zip" -DestinationPath "$env:temp\die\"
+if (Test-Path -Path $folder20) { Write-Host "lessmsi directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "lessmsi" -ItemType "directory"
+Invoke-WebRequest  $url20 -OutFile "$folder20\lessmsi.zip"
+Expand-Archive -LiteralPath "$folder20\lessmsi.zip" -DestinationPath "$folder20\lessmsi\"} 
 }
