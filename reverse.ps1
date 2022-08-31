@@ -24,8 +24,8 @@ $url12 = "https://github.com/dnSpy/dnSpy/releases/download/v6.1.8/dnSpy-net-win6
 $folder12 = "$env:temp\dnspy"
 $url13 = "https://download.sysinternals.com/files/Autoruns.zip"
 $folder13 = "$env:temp\autoruns"
-$url14 = "https://gchq.github.io/CyberChef/CyberChef_v9.37.0.zip"
-$folder14 = "$env:temp\cyberchef"
+$url14 = "https://download.sysinternals.com/files/ProcessMonitor.zip"
+$folder14 = "$env:temp\procmon"
 $url15 = "https://github.com/hasherezade/hollows_hunter/releases/download/v0.3.4/hollows_hunter64.zip"
 $folder15 = "$env:temp\hollowshunter"
 $url16 = "https://github.com/hasherezade/pe_to_shellcode/releases/download/v1.1/pe2shc_1.1.zip"
@@ -106,9 +106,9 @@ Invoke-WebRequest  $url13 -OutFile "$env:Temp\autoruns\autoruns.zip"
 Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
 if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "cyberchef" -ItemType "directory"
-Invoke-WebRequest  $url14 -OutFile "$env:Temp\cyberchef\cyberchef.zip"
-Expand-Archive -LiteralPath "$env:temp\cyberchef\cyberchef.zip" -DestinationPath "$env:temp\cyberchef\cyberchef\"}
+New-Item -Path "$env:temp\" -Name "procmon" -ItemType "directory"
+Invoke-WebRequest  $url14 -OutFile "$folder14\procmon.zip"
+Expand-Archive -LiteralPath "$folder14\procmon.zip" -DestinationPath "$folder14\procmon\"}
 if (Test-Path -Path $folder15) { Write-Host "hollowshunter directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "hollowshunter" -ItemType "directory"
