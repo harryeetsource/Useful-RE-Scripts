@@ -48,7 +48,7 @@ else {
 New-Item -Path "$env:temp\" -Name "x64dbg" -ItemType "directory"
 Invoke-WebRequest $url2 -OutFile "$env:temp\x64dbg\x64dbg.zip"
 Expand-Archive -LiteralPath "$env:temp\x64dbg\x64dbg.zip" -DestinationPath "$env:temp\x64dbg\x64dbg\"}
-if (Test-Path -Path $folder3) { Write-Host "NPE directory already exists, skipping" }
+if (Test-Path -Path $folder3) { Write-Host "pwsh directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "pwsh" -ItemType "directory"
 Invoke-WebRequest  $url3 -OutFile "$env:Temp\pwsh\pwsh.msi"
