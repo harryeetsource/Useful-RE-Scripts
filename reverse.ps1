@@ -81,7 +81,7 @@ Start-Process "$env:temp\7z\7zsetup.exe" }
 if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "malunpack" -ItemType "directory"
-Invoke-WebRequest  $url9 -OutFile "$env:Temp\malunpack\malunpack.zip"
+Invoke-WebRequest  $url9 -OutFile "$folder9\malunpack.zip"
 Expand-Archive -LiteralPath "$folder9\malunpack.zip" -DestinationPath "$folder9\malunpack\"
 }
 $folder10 = "$env:temp\IDA"
