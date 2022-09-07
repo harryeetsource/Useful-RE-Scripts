@@ -54,7 +54,7 @@ if (Test-Path -Path $folder3) { Write-Host "pwsh directory already exists, skipp
 else {
 New-Item -Path "$env:temp\" -Name "pwsh" -ItemType "directory"
 Invoke-WebRequest  $url3 -OutFile "$folder3\pwsh.msi"
-Start-Process msiexec.exe -ArgumentList /package "$folder3\pwsh.msi" /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
+Start-Process "$folder3\pwsh.msi" -ArgumentList /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
