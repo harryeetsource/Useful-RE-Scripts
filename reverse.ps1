@@ -1,6 +1,6 @@
-﻿$url1 =  "github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.3/PE-bear_0.5.5.3_x64_win_vs17.zip"
+$url1 =  "https://github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.7/PE-bear_0.5.5.7_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-08-20_00-05.zip"
+$url2 = "https://osdn.net/projects/x64dbg/storage/snapshots/snapshot_2022-09-07_14-52.zip"
 $folder2 = "$env:Temp\x64dbg"
 $url3 = "https://github.com/PowerShell/PowerShell/releases/download/v7.2.6/PowerShell-7.2.6-win-x64.msi"
 $folder3 = "$env:Temp\pwsh"
@@ -38,6 +38,8 @@ $url19 = "https://github.com/horsicq/DIE-engine/releases/download/3.04/die_win64
 $folder19 = "$env:temp\die"
 $url20 = "https://github.com/activescott/lessmsi/releases/download/v1.10.0/lessmsi-v1.10.0.zip"
 $folder20 = "$env:temp\lessmsi"
+$url21 = "https://github.com/mentebinaria/retoolkit/releases/download/2022.04/retoolkit_2022.04_setup.exe"
+$folder21 = "$env:temp\retoolkit"
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -51,8 +53,8 @@ Expand-Archive -LiteralPath "$env:temp\x64dbg\x64dbg.zip" -DestinationPath "$env
 if (Test-Path -Path $folder3) { Write-Host "pwsh directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "pwsh" -ItemType "directory"
-Invoke-WebRequest  $url3 -OutFile "$env:Temp\pwsh\pwsh.msi"
-Start-Process msiexec.exe /package "$env:Temp\pwsh\pwsh.msi" /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
+Invoke-WebRequest  $url3 -OutFile "$folder3\pwsh.msi"
+Start-Process msiexec.exe -ArgumentList /package "$folder3\pwsh.msi" /quiet ADD_EXPLORER_CONTEXT_MENU_OPENPOWERSHELL=1 ADD_FILE_CONTEXT_MENU_RUNPOWERSHELL=1 ENABLE_PSREMOTING=0 REGISTER_MANIFEST=1 USE_MU=1 ENABLE_MU=1 ADD_PATH=1}
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
@@ -139,4 +141,10 @@ else {
 New-Item -Path "$env:temp\" -Name "lessmsi" -ItemType "directory"
 Invoke-WebRequest  $url20 -OutFile "$folder20\lessmsi.zip"
 Expand-Archive -LiteralPath "$folder20\lessmsi.zip" -DestinationPath "$folder20\lessmsi\"} 
+}
+if (Test-Path -Path $folder21) {Write-Host "Retoolkit directory exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "retoolkit" -ItemType "directory"
+Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe"
+Start-Process "$folder21\retoolkit.exe"
 }
