@@ -1,0 +1,4 @@
+http://www.nirsoft.net/utils/dllexp-x64.zip
+http://www.nirsoft.net/utils/regdllview-x64.zip
+http://www.nirsoft.net/utils/pcanyscan.zip
+http://www.nirsoft.net/utils/netbscanner.zip
