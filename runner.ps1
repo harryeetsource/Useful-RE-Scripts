@@ -18,4 +18,6 @@ if ($decision -eq 0) {
     Write-Host 'confirmed'
     Invoke-Webrequest -uri https://raw.githubusercontent.com/mandiant/flare-vm/master/install.ps1 -OutFile "${env:temp}\flare.ps1" 
     Invoke-Webrequest -uri https://raw.githubusercontent.com/harryeetsource/WindowsScripts/main/WindowsRepairBund.bat -OutFile "${env:temp}\start.bat" 
-    Start-Process -Filepath  "${env:temp}\start.bat"
+    Start-Process -Filepath  "${env:temp}\start.bat"}
+else
+{Write-host 'canceled'}
