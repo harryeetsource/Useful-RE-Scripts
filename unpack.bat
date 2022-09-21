@@ -1,0 +1,1 @@
+.\mal_unpack.exe /exe "C:\Users\WDAGUtilityAccount\Desktop\forensics\fpb.tmp" /cache /refl /data 3 /shellc /hooks /minidmp /timeout 0
