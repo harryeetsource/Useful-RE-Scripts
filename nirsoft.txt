@@ -3,3 +3,4 @@ http://www.nirsoft.net/utils/regdllview-x64.zip
 http://www.nirsoft.net/utils/wnetwatcher.zip
 http://www.nirsoft.net/utils/netbscanner.zip
 http://www.nirsoft.net/toolsdownload/encryptedregview-x64.zip
+http://www.nirsoft.net/utils/wirelessnetview.zip
