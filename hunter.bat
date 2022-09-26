@@ -1,1 +1,1 @@
-cd "%~dp0" & .\hollows_hunter.exe /cache /loop /refl /data 3 /shellc /threads /hooks /iat 3 /minidmp
+.\hollows_hunter.exe /pname svchost.exe;explorer.exe;dllhost.exe /cache /loop /refl /data 3 /shellc /threads /hooks /iat 3 /minidmp
