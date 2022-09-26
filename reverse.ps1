@@ -40,8 +40,8 @@ $url20 = "https://github.com/activescott/lessmsi/releases/download/v1.10.0/lessm
 $folder20 = "$env:temp\lessmsi"
 $url21 = "https://github.com/mentebinaria/retoolkit/releases/download/2022.04/retoolkit_2022.04_setup.exe"
 $folder21 = "$env:temp\retoolkit"
-$url22 = "https://drive.google.com/open?id=1hJMHFYXxcW1w14KFhlVZ3PbHuOc6pbN4&authuser=0"
-$folder22 = "$env:temp\peunmapper"
+$url22 = "http://www.angusj.com/resourcehacker/reshacker_setup.exe"
+$folder22 = "$env:temp\resourcehacker"
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -150,8 +150,8 @@ New-Item -Path "$env:temp\" -Name "retoolkit" -ItemType "directory"
 Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe"
 Start-Process "$folder21\retoolkit.exe"
 }
-if (Test-Path -Path $folder22) { Write-Host "peunmapper directory already exists, skipping" }
+if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "peunmapper" -ItemType "directory"
-Invoke-WebRequest  $url22 -OutFile "$env:Temp\peunmapper\peunmapper.exe"
+New-Item -Path "$env:temp\" -Name "resourcehacker" -ItemType "directory"
+Invoke-WebRequest  $url22 -OutFile "$env:Temp\resourcehacker\resourcehacker.exe"
 }
