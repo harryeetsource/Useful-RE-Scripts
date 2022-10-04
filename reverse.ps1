@@ -154,4 +154,8 @@ if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already ex
 else {
 New-Item -Path "$env:temp\" -Name "resourcehacker" -ItemType "directory"
 Invoke-WebRequest  $url22 -OutFile "$env:Temp\resourcehacker\resourcehacker.exe"
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\temp.lnk")
+$Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
+$Shortcut.Save()
 }
