@@ -1,6 +1,6 @@
 $url1 =  "https://github.com/hasherezade/pe-bear-releases/releases/download/0.5.5.7/PE-bear_0.5.5.7_x64_win_vs17.zip"
 $folder1 = "$env:Temp\PeBear"
-$url2 = "https://downloads.sourceforge.net/project/x64dbg/snapshots/snapshot_2022-09-25_14-55.zip?ts=gAAAAABjMeNn9BWt37j-_qOaDO1y8pFp7dk2uHM5wSuZ14JZJ7FV05q6PK4Hiv-23MpirqVBZXWMkqIQdai6yRMqlK0Wt8B2kA%3D%3D&r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fx64dbg%2Ffiles%2Fsnapshots%2Fsnapshot_2022-09-25_14-55.zip%2Fdownload"
+$url2 = "https://github.com/x64dbg/x64dbg/releases/download/snapshot/snapshot_2022-10-03_23-36.zip"
 $folder2 = "$env:Temp\x64dbg"
 $url3 = "https://github.com/PowerShell/PowerShell/releases/download/v7.2.6/PowerShell-7.2.6-win-x64.msi"
 $folder3 = "$env:Temp\pwsh"
