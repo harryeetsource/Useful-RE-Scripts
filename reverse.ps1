@@ -155,7 +155,7 @@ else {
 New-Item -Path "$env:temp\" -Name "resourcehacker" -ItemType "directory"
 Invoke-WebRequest  $url22 -OutFile "$env:Temp\resourcehacker\resourcehacker.exe"
 $WshShell = New-Object -comObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\temp.lnk")
+$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
 $Shortcut.Save()
 }
