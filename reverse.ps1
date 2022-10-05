@@ -42,6 +42,8 @@ $url21 = "https://github.com/mentebinaria/retoolkit/releases/download/2022.04/re
 $folder21 = "$env:temp\retoolkit"
 $url22 = "http://www.angusj.com/resourcehacker/reshacker_setup.exe"
 $folder22 = "$env:temp\resourcehacker"
+$url23 = "https://mh-nexus.de/downloads/HxDSetup.zip"
+$folder23 = "$env:temp\hxd"
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -154,6 +156,13 @@ if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already ex
 else {
 New-Item -Path "$env:temp\" -Name "resourcehacker" -ItemType "directory"
 Invoke-WebRequest  $url22 -OutFile "$env:Temp\resourcehacker\resourcehacker.exe"
+if (Test-Path -Path $folder23) { Write-Host "hxd directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "hxd" -ItemType "directory"
+Invoke-WebRequest  $url23 -OutFile "$env:Temp\hxd\hxd.zip"
+Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$folder23\hxd\hxdsetup.exe"
+Start-Process "$folder23\hxd\hxdsetup.exe"
+} 
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
