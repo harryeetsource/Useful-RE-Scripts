@@ -44,6 +44,12 @@ $url22 = "http://www.angusj.com/resourcehacker/reshacker_setup.exe"
 $folder22 = "$env:temp\resourcehacker"
 $url23 = "https://mh-nexus.de/downloads/HxDSetup.zip"
 $folder23 = "$env:temp\hxd"
+$url24 = "https://ntcore.com/files/ExplorerSuite.exe"
+$folder24 = "$env:temp\explorersuite"
+$WshShell = New-Object -comObject WScript.Shell
+$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
+$Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
+$Shortcut.Save()
 if (Test-Path -Path $folder1) { Write-Host "PEbear directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "PEbear" -ItemType "directory"
@@ -163,8 +169,10 @@ Invoke-WebRequest  $url23 -OutFile "$env:Temp\hxd\hxd.zip"
 Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$folder23\hxd\hxdsetup.exe"
 Start-Process "$folder23\hxd\hxdsetup.exe"
 } 
-$WshShell = New-Object -comObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
-$Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
-$Shortcut.Save()
+if (Test-Path -Path $folder24) { Write-Host "explorer suite directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "explorersuite" -ItemType "directory"
+Invoke-WebRequest  $url24 -OutFile "$folder24\explorersuite.exe"
+Start-Process "$folder24\explorersuite.exe"}
+
 }
