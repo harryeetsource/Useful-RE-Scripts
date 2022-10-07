@@ -165,8 +165,8 @@ Invoke-WebRequest  $url22 -OutFile "$env:Temp\resourcehacker\resourcehacker.exe"
 if (Test-Path -Path $folder23) { Write-Host "hxd directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "hxd" -ItemType "directory"
-Invoke-WebRequest  $url23 -OutFile "$env:Temp\hxd\hxd.zip"
-Expand-Archive -LiteralPath "$env:temp\hxd\hxd.zip" -DestinationPath "$folder23\hxd\hxdsetup.exe"
+Invoke-WebRequest  $url23 -OutFile "$folder23\hxd.zip"
+Expand-Archive -LiteralPath "$folder23\hxd.zip" -DestinationPath "$folder23\hxd\"
 Start-Process "$folder23\hxd\hxdsetup.exe"
 } 
 if (Test-Path -Path $folder24) { Write-Host "explorer suite directory already exists, skipping" }
