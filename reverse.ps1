@@ -179,7 +179,7 @@ Start-Process "$folder24\explorersuite.exe"}
 if (Test-Path -Path $folder25) { Write-Host "cryptotester directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "cryptotester" -ItemType "directory"
-Invoke-WebRequest  $url6 -OutFile "$folder25\cryptotester.zip"
+Invoke-WebRequest  $url25 -OutFile "$folder25\cryptotester.zip"
 Expand-Archive -LiteralPath "$folder25\cryptotester.zip" -DestinationPath "$folder25\cryptotester\"}
 }
 
