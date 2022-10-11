@@ -46,6 +46,8 @@ $url23 = "https://mh-nexus.de/downloads/HxDSetup.zip"
 $folder23 = "$env:temp\hxd"
 $url24 = "https://ntcore.com/files/ExplorerSuite.exe"
 $folder24 = "$env:temp\explorersuite"
+$url25 = "https://drive.google.com/uc?export=download&id=1zkYTqshqarAPXaCyK8bNHAsoTIsirvwE"
+$folder25 = "$env:temp\cryptotester"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -174,5 +176,10 @@ else {
 New-Item -Path "$env:temp\" -Name "explorersuite" -ItemType "directory"
 Invoke-WebRequest  $url24 -OutFile "$folder24\explorersuite.exe"
 Start-Process "$folder24\explorersuite.exe"}
-
+if (Test-Path -Path $folder25) { Write-Host "cryptotester directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "cryptotester" -ItemType "directory"
+Invoke-WebRequest  $url6 -OutFile "$folder25\cryptotester.zip"
+Expand-Archive -LiteralPath "$folder25\cryptotester.zip" -DestinationPath "$folder25\cryptotester\"}
 }
+
