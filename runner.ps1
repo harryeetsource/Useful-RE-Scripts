@@ -16,8 +16,8 @@ if ((Test-Admin) -eq $false)  {
 $decision = $Host.UI.PromptForChoice($title, $question, $choices, 1)
 if ($decision -eq 0) {
     Write-Host 'confirmed'
-    Invoke-Webrequest -uri https://raw.githubusercontent.com/mandiant/flare-vm/master/install.ps1 -OutFile "${env:temp}\runner.ps1" 
-    Invoke-Webrequest -uri https://raw.githubusercontent.com/harryeetsource/WindowsScripts/main/WindowsRepairBund.bat -OutFile "${env:temp}\runner.bat" 
-    Start-Process -Filepath  "${env:temp}\runner.bat"}
+    Invoke-Webrequest -uri https://raw.githubusercontent.com/mandiant/flare-vm/master/install.ps1 -OutFile "${env:temp}\flare.ps1" 
+    Invoke-Webrequest -uri https://raw.githubusercontent.com/harryeetsource/WindowsScripts/main/WindowsRepairBund.bat -OutFile "${env:temp}\flare.bat" 
+    Start-Process -Filepath  "${env:temp}\flare.bat"}
 else
 {Write-host 'canceled'}
