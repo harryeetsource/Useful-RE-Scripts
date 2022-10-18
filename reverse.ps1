@@ -181,6 +181,6 @@ else {
 New-Item -Path "$env:temp\" -Name "cryptotester" -ItemType "directory"
 Invoke-WebRequest  $url25 -OutFile "$folder25\main.zip"
 Expand-Archive -LiteralPath "$folder25\main.zip" -DestinationPath "$folder25\main\cryptotester\"
-Expand-Archive -LiteralPath "$folder25\main\cryptotester\cryptotester.zip" -Destinationpath "$folder25\main\cryptotester\testing"}
+Expand-Archive -LiteralPath "$folder25\main\cryptotester\cryptotester-main\cryptotester.zip" -Destinationpath "$folder25\main\cryptotester\testing"}
 }
 
