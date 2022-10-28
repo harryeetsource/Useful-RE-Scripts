@@ -1,0 +1,1 @@
+SetBPX GetProcessHeap ; SetBPX IsProcessorFeaturePresent ; SetBPX ShellExecuteExW ; SetBPX CreateFileW ; SetBPX WriteFile ; SetBPX CreateProcessA ; SetBPX RtlExitUserProcess ; SetBPX GetProcAddress
