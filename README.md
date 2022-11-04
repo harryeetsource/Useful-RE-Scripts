@@ -6,3 +6,4 @@ HERE IS A LINK TO OTHER REPOS: https://github.com/mentebinaria/retoolkit/release
 
 Simple scripts and encoded versions. Run the batch file and rename it to match the powershell script you want to execute. For IT and security research purposes
 Updated semi-frequently.
+https://github.com/thimbleweed/All-In-USB/tree/master/utilities/DumpIt
