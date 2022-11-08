@@ -50,6 +50,8 @@ $url25 = "https://github.com/harryeetsource/cryptotester/archive/refs/heads/main
 $folder25 = "$env:temp\cryptotester"
 $url26 = "https://www.osforensics.com/downloads/VolatilityWorkbench.zip"
 $folder26 = "$env:temp\volatility"
+$url27 = "https://osforensics.com/downloads/osf.exe"
+$folder27 = "$env:temp\osf"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -191,4 +193,9 @@ New-Item -Path "$env:temp\" -Name "volatility" -ItemType "directory"
 Invoke-WebRequest  $url26 -OutFile "$env:Temp\volatility\volatility.zip"
 Expand-Archive -LiteralPath "$folder26\volatility.zip" -DestinationPath "$folder26\volatility\"
 }
+if (Test-Path -Path $folder27) { Write-Host "osf directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "osf" -ItemType "directory"
+Invoke-WebRequest  $url27 -OutFile "$env:Temp\osf\osf.exe"
+} 
 
