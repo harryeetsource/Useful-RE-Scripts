@@ -30,7 +30,7 @@ $url15 = "https://github.com/hasherezade/hollows_hunter/releases/download/v0.3.4
 $folder15 = "$env:temp\hollowshunter"
 $url16 = "https://github.com/hasherezade/pe_to_shellcode/releases/download/v1.1/pe2shc_1.1.zip"
 $folder16 = "$env:temp\pe2shc"
-$url17 = "https://github.com/upx/upx/releases/download/v3.96/upx-3.96-win64.zip"
+$url17 = "https://github.com/upx/upx/releases/download/v4.0.0/upx-4.0.0-win64.zip"
 $folder17 = "$env:temp\upx"
 $url18 = "https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-user"
 $folder18 = "$env:temp\visualstudio"
