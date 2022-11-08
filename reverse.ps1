@@ -48,6 +48,8 @@ $url24 = "https://ntcore.com/files/ExplorerSuite.exe"
 $folder24 = "$env:temp\explorersuite"
 $url25 = "https://github.com/harryeetsource/cryptotester/archive/refs/heads/main.zip"
 $folder25 = "$env:temp\cryptotester"
+$url26 = "https://www.osforensics.com/downloads/VolatilityWorkbench.zip"
+$folder26 = "$env:temp\volatility"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -182,5 +184,11 @@ New-Item -Path "$env:temp\" -Name "cryptotester" -ItemType "directory"
 Invoke-WebRequest  $url25 -OutFile "$folder25\main.zip"
 Expand-Archive -LiteralPath "$folder25\main.zip" -DestinationPath "$folder25\main\cryptotester\"
 Expand-Archive -LiteralPath "$folder25\main\cryptotester\cryptotester-main\cryptotester.zip" -Destinationpath "$folder25\main\cryptotester\testing"}
+}
+if (Test-Path -Path $folder26) { Write-Host "volatility directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "volatility" -ItemType "directory"
+Invoke-WebRequest  $url26 -OutFile "$env:Temp\volatility\volatility.zip"
+Expand-Archive -LiteralPath "$folder26\volatility.zip" -DestinationPath "$folder26\volatility\"
 }
 
