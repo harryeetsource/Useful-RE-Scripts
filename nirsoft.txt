@@ -6,3 +6,4 @@ http://www.nirsoft.net/toolsdownload/encryptedregview-x64.zip
 http://www.nirsoft.net/utils/wirelessnetview.zip
 https://github.com/dzzie/VS_LIBEMU/archive/refs/heads/master.zip
 https://github.com/JPCERTCC/Windows-Symbol-Tables
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe
