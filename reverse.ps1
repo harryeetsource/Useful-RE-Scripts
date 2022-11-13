@@ -89,7 +89,7 @@ Expand-Archive -LiteralPath "$env:temp\Pestudio\Pestudio.zip" -DestinationPath "
 if (Test-Path -Path $folder7) { Write-Host "ProcHacker directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "ProcHacker" -ItemType "directory"
-Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" & Start-Process
+Start-Process | Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" 
 }
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
