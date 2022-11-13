@@ -94,7 +94,7 @@ Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" & Start-Process
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "7z" -ItemType "directory"
-Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" | Start-Process
+Start-Process | Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" 
 }
 if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
