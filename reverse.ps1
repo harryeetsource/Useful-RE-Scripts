@@ -74,8 +74,8 @@ Start-Process "$folder3\pwsh.msi" -ArgumentList "/quiet ADD_EXPLORER_CONTEXT_MEN
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
-Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi"
-Start-Process "$env:Temp\coretto\coretto.msi"}
+Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi" | Start-Process
+}
 if (Test-Path -Path $folder5) { Write-Host "ghidra directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "Ghidra" -ItemType "directory"
