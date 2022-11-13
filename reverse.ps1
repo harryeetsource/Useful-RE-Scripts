@@ -22,8 +22,8 @@ $url11 = "https://www.dependencywalker.com/depends22_x64.zip"
 $folder11 = "$env:temp\Depends"
 $url12 = "https://github.com/dnSpy/dnSpy/releases/download/v6.1.8/dnSpy-net-win64.zip"
 $folder12 = "$env:temp\dnspy"
-$url13 = "https://download.sysinternals.com/files/Autoruns.zip"
-$folder13 = "$env:temp\autoruns"
+$url13 = "https://github.com/harryeetsource/sysinternals/archive/refs/heads/main.zip"
+$folder13 = "$env:temp\sysinternals"
 $url14 = "https://download.sysinternals.com/files/ProcessMonitor.zip"
 $folder14 = "$env:temp\procmon"
 $url15 = "https://github.com/hasherezade/hollows_hunter/releases/download/v0.3.4/hollows_hunter64.zip"
@@ -50,8 +50,8 @@ $url25 = "https://github.com/harryeetsource/cryptotester/archive/refs/heads/main
 $folder25 = "$env:temp\cryptotester"
 $url26 = "https://www.osforensics.com/downloads/VolatilityWorkbench.zip"
 $folder26 = "$env:temp\volatility"
-$url27 = "https://osforensics.com/downloads/osf.exe"
-$folder27 = "$env:temp\osf"
+$url27 = "https://github.com/JPCERTCC/Windows-Symbol-Tables"
+$folder27 = "$folder26\volatility"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -89,13 +89,13 @@ Expand-Archive -LiteralPath "$env:temp\Pestudio\Pestudio.zip" -DestinationPath "
 if (Test-Path -Path $folder7) { Write-Host "ProcHacker directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "ProcHacker" -ItemType "directory"
-Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe"
-Start-Process "$folder7\ProcHackerSetup.exe"}
+Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" | Start-Process
+}
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "7z" -ItemType "directory"
-Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe"
-Start-Process "$env:temp\7z\7zsetup.exe" }
+Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" | Start-Process
+}
 if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "malunpack" -ItemType "directory"
@@ -117,10 +117,10 @@ else {
 New-Item -Path "$env:temp\" -Name "dnspy" -ItemType "directory"
 Invoke-WebRequest  $url12 -OutFile "$env:Temp\dnspy\dnspy.zip"
 Expand-Archive -LiteralPath "$env:temp\dnspy\dnspy.zip" -DestinationPath "$env:temp\dnspy\dnspy\"} 
-if (Test-Path -Path $folder13) { Write-Host "Autoruns directory already exists, skipping" }
+if (Test-Path -Path $folder13) { Write-Host "sysinternals directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "autoruns" -ItemType "directory"
-Invoke-WebRequest  $url13 -OutFile "$env:Temp\autoruns\autoruns.zip"
+New-Item -Path "$env:temp\" -Name "sysinternals" -ItemType "directory"
+Invoke-WebRequest  $url13 -OutFile "$folder13\sysinternals.zip"
 Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
 if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
 else {
@@ -161,8 +161,7 @@ Expand-Archive -LiteralPath "$folder20\lessmsi.zip" -DestinationPath "$folder20\
 if (Test-Path -Path $folder21) {Write-Host "Retoolkit directory exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "retoolkit" -ItemType "directory"
-Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe"
-Start-Process "$folder21\retoolkit.exe"
+Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe" | Start-Process
 }
 if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already exists, skipping" }
 else {
@@ -193,9 +192,10 @@ New-Item -Path "$env:temp\" -Name "volatility" -ItemType "directory"
 Invoke-WebRequest  $url26 -OutFile "$env:Temp\volatility\volatility.zip"
 Expand-Archive -LiteralPath "$folder26\volatility.zip" -DestinationPath "$folder26\volatility\"
 }
-if (Test-Path -Path $folder27) { Write-Host "osf directory already exists, skipping" }
-else {
-New-Item -Path "$env:temp\" -Name "osf" -ItemType "directory"
-Invoke-WebRequest  $url27 -OutFile "$env:Temp\osf\osf.exe"
-} 
-
+$title    = 'Would you like to download windows symbol tables?'
+$question = 'Are you sure you want to proceed?'
+$choices  = '&Yes', '&No'
+$decision = $Host.UI.PromptForChoice($title, $question, $choices, 1)
+if ($decision -eq 0) {
+    Write-Host 'confirmed'
+Invoke-WebRequest $url27 -Outfile $folder27    
