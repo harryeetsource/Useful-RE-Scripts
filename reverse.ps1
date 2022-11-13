@@ -94,7 +94,7 @@ Start-Process | Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe"
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "7z" -ItemType "directory"
-Start-Process | Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" 
+ Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" Start-Process "$env:Temp\7z\7zsetup.exe"
 }
 if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
@@ -121,7 +121,7 @@ if (Test-Path -Path $folder13) { Write-Host "sysinternals directory already exis
 else {
 New-Item -Path "$env:temp\" -Name "sysinternals" -ItemType "directory"
 Invoke-WebRequest  $url13 -OutFile "$folder13\sysinternals.zip"
-Expand-Archive -LiteralPath "$env:temp\autoruns\autoruns.zip" -DestinationPath "$env:temp\autoruns\autoruns\"} 
+Expand-Archive -LiteralPath "$env:temp\sysinternals\sysinternals.zip" -DestinationPath "$env:temp\sysinternals\sysinternals\"} 
 if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "procmon" -ItemType "directory"
@@ -161,7 +161,7 @@ Expand-Archive -LiteralPath "$folder20\lessmsi.zip" -DestinationPath "$folder20\
 if (Test-Path -Path $folder21) {Write-Host "Retoolkit directory exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "retoolkit" -ItemType "directory"
-Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe" & Start-Process
+Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe"  Start-Process "$folder21\retoolkit.exe"
 }
 if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already exists, skipping" }
 else {
