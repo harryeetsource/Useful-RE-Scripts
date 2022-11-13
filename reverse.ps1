@@ -74,7 +74,7 @@ Start-Process "$folder3\pwsh.msi" -ArgumentList "/quiet ADD_EXPLORER_CONTEXT_MEN
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
-Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi" | Start-Process
+Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi" 
 }
 if (Test-Path -Path $folder5) { Write-Host "ghidra directory already exists, skipping" }
 else {
@@ -89,7 +89,7 @@ Expand-Archive -LiteralPath "$env:temp\Pestudio\Pestudio.zip" -DestinationPath "
 if (Test-Path -Path $folder7) { Write-Host "ProcHacker directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "ProcHacker" -ItemType "directory"
-Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" | Start-Process
+Invoke-WebRequest  $url7 -OutFile "$folder7\ProcHackerSetup.exe" & Start-Process
 }
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
@@ -161,7 +161,7 @@ Expand-Archive -LiteralPath "$folder20\lessmsi.zip" -DestinationPath "$folder20\
 if (Test-Path -Path $folder21) {Write-Host "Retoolkit directory exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "retoolkit" -ItemType "directory"
-Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe" | Start-Process
+Invoke-Webrequest $url21 -OutFile "$folder21\retoolkit.exe" & Start-Process
 }
 if (Test-Path -Path $folder22) { Write-Host "resourcehacker directory already exists, skipping" }
 else {
