@@ -49,9 +49,9 @@ $folder24 = "$env:temp\explorersuite"
 $url25 = "https://github.com/harryeetsource/cryptotester/archive/refs/heads/main.zip"
 $folder25 = "$env:temp\cryptotester"
 $url26 = "https://www.osforensics.com/downloads/VolatilityWorkbench.zip"
-$folder26 = "$env:temp\windowssymbols"
+$folder26 = "$env:temp\volatility"
 $url27 = "https://github.com/JPCERTCC/Windows-Symbol-Tables/archive/refs/heads/main.zip"
-$folder27 = "$folder26\volatility"
+$folder27 = "$env:temp\windowssymbols"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -74,7 +74,7 @@ Start-Process "$folder3\pwsh.msi" -ArgumentList "/quiet ADD_EXPLORER_CONTEXT_MEN
 if (Test-Path -Path $folder4) { Write-Host "Coretto directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "coretto" -ItemType "directory"
-Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi" 
+Start-Process | Invoke-WebRequest  $url4 -OutFile "$env:Temp\coretto\coretto.msi" 
 }
 if (Test-Path -Path $folder5) { Write-Host "ghidra directory already exists, skipping" }
 else {
