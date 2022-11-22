@@ -24,8 +24,8 @@ $url12 = "https://github.com/dnSpy/dnSpy/releases/download/v6.1.8/dnSpy-net-win6
 $folder12 = "$env:temp\dnspy"
 $url13 = "https://github.com/harryeetsource/sysinternals/archive/refs/heads/main.zip"
 $folder13 = "$env:temp\sysinternals"
-$url14 = "https://download.sysinternals.com/files/ProcessMonitor.zip"
-$folder14 = "$env:temp\procmon"
+$url14 = "https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe"
+$folder14 = "$env:temp\vc"
 $url15 = "https://github.com/hasherezade/hollows_hunter/releases/download/v0.3.4/hollows_hunter64.zip"
 $folder15 = "$env:temp\hollowshunter"
 $url16 = "https://github.com/hasherezade/pe_to_shellcode/releases/download/v1.1/pe2shc_1.1.zip"
@@ -96,7 +96,8 @@ Start-Process "$folder7\prochackersetup.exe"
 if (Test-Path -Path $folder8) { Write-Host "7z directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "7z" -ItemType "directory"
- Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" Start-Process "$env:Temp\7z\7zsetup.exe"
+Invoke-WebRequest  $url8 -OutFile "$env:Temp\7z\7zsetup.exe" 
+Start-Process "$env:Temp\7z\7zsetup.exe"
 }
 if (Test-Path -Path $folder9) { Write-Host "malunpack directory already exists, skipping" }
 else {
@@ -124,11 +125,11 @@ else {
 New-Item -Path "$env:temp\" -Name "sysinternals" -ItemType "directory"
 Invoke-WebRequest  $url13 -OutFile "$folder13\sysinternals.zip"
 Expand-Archive -LiteralPath "$env:temp\sysinternals\sysinternals.zip" -DestinationPath "$env:temp\sysinternals\sysinternals\"} 
-if (Test-Path -Path $folder14) { Write-Host "cyberchef directory already exists, skipping" }
+if (Test-Path -Path $folder14) { Write-Host "procmon directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "procmon" -ItemType "directory"
-Invoke-WebRequest  $url14 -OutFile "$folder14\procmon.zip"
-Expand-Archive -LiteralPath "$folder14\procmon.zip" -DestinationPath "$folder14\procmon\"}
+New-Item -Path "$env:temp\" -Name "vc" -ItemType "directory"
+Invoke-WebRequest  $url14 -OutFile "$folder14\vc2015.exe"
+Start-Process "$folder14\vc2015.exe"}
 if (Test-Path -Path $folder15) { Write-Host "hollowshunter directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "hollowshunter" -ItemType "directory"
