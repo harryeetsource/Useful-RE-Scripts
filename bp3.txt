@@ -1,0 +1,1 @@
+SetBPX NtSetInformationThread ; SetBPX ; SetBPX WriteProcessMemory ; SetBPX ResumeThread ; SetBPX VirtualAlloc ; SetBPX VirtualProtect ; SetBPX CreateFileA
