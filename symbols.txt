@@ -1,0 +1,1 @@
+symchk.exe /r "c:\windows\system32\calc.exe" /s SRV*c:\symbols\*http://msdl.microsoft.com/download/symbols
