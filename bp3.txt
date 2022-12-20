@@ -1,1 +1,1 @@
-SetBPX NtSetInformationThread ; SetBPX GetNativeSystemInfo ; SetBPX WriteProcessMemory ; SetBPX ResumeThread ; SetBPX VirtualAlloc ; SetBPX VirtualProtect ; SetBPX CreateFileA ; SetBPX NtMapViewOfSection
+SetBPX NtSetInformationThread ; SetBPX GetNativeSystemInfo ; SetBPX WriteProcessMemory ; SetBPX ResumeThread ; SetBPX VirtualAlloc ; SetBPX VirtualProtect ; SetBPX CreateFileA ; SetBPX NtMapViewOfSection ; SetBPX GetLocgicalProcessorInformation ;
