@@ -1,0 +1,78 @@
+# powershell XOR encoder / decoder and hex / byte - byte / hex conversions
+# usage: execute & see output
+
+# xor encoder / decoder
+function xor($bytes, $string) {
+    $newBytes = @();
+    for ($i = 0; $i -lt $bytes.Count; $i++) {
+        $newBytes += $bytes[$i] -bxor $string[$i % $string.Length];
+    } 
+    return $newBytes;
+}
+
+# hex string to byte array conversion
+function hexStringToBytes($hexString) {
+    $newBytes = @();
+    for ($i = 0; $i -lt $hexString.Length; $i += 2) {
+        $newBytes += [Byte]::Parse($hexString.Substring($i, 2), [System.Globalization.NumberStyles]::HexNumber);
+    }
+    return $newBytes;
+}
+
+# byte array to hex string conversion
+function bytesToHexString($bytes) {
+    $hexString = @();
+    for ($i = 0; $i -lt $bytes.Count; $i++) {
+        $hexString += $bytes[$i].ToString("X2");
+    }
+    return $hexString;
+}
+
+# various byte / hex conversion methods + xor test
+function test($bytes) {
+
+    $test = "super xor conversion test string";
+    $key = "supersecret";
+
+    write-host "XOR encoder / decoder with various byte / hex conversions";    
+    write-host "Plain Variable";
+    write-host $test;
+    
+    # XOR bytes with key
+    $xor = xor ([system.Text.Encoding]::UTF8.getBytes($test)) $key;
+    
+    write-host "XOR String (maybe not all character displayed)";    
+    write-host "wild bytes: no conversion";
+    write-host ([system.Text.Encoding]::UTF8.getString($xor));
+    
+    write-host "--------------------";
+    write-host "[System.BitConverter]::ToString(); string conversion";
+    $hex = [System.BitConverter]::ToString($xor) -replace '-', ''; 
+    write-host $hex;
+    
+    write-host "--------------------";
+    write-host "(|ForEach-Object ToString X2) -join '' string conversion";
+    $hex2 = ($xor|ForEach-Object ToString X2) -join ''
+    write-host $hex2;
+    
+    write-host "--------------------";
+    write-host "bytesToHexString() byte array conversion";
+    $hexByte = bytesToHexString($xor);
+    write-host $hexByte;
+    write-host "bytesToHexString() string conversion";
+    $hex3 = ($hexByte -join '');
+    write-host $hex3;
+    
+    write-host "--------------------";
+    write-host "hexStringToBytes() and bytesToHexString() string conversion";
+    $bytes = hexStringToBytes($hex3);
+    $hexByte = bytesToHexString($bytes);
+    write-host ($hexByte -join '');
+    
+    write-host "--------------------";
+    write-host "XOR String again with key";
+    $deXor = xor $xor $key; # xor with same key to get old value
+    write-host ([system.Text.Encoding]::UTF8.getString($deXor));   
+}
+
+test;
