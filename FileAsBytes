@@ -1,0 +1,1 @@
+$bytes = [System.IO.File]::ReadAllBytes("path_to_the_file")
