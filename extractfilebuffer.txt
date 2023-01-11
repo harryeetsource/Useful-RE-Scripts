@@ -1,0 +1,27 @@
+# define the offset + chunk size you want to read
+$offset    = 0x0007A600
+$chunkSize = 0x00192512
+
+# Open file stream
+$file = Get-Item $PathToFile
+$filestream = $file.OpenRead()
+
+# Move stream cursor to offset
+[void]$filestream.Seek(0x0007A600, [System.IO.SeekOrigin]::Begin)
+
+# Read a chunk into a buffer
+$buffer = [byte[]]::new($chunkSize)
+$readCount = $filestream.Read($buffer, 0, $buffer.Length)
+
+# Close + dispose of file stream
+$filestream.Dispose()
+
+# Truncate buffer if file is smaller than desired chunk size
+if($readCount -lt $buffer.Length){
+  $tmp = [byte[]]::new($readCount)
+  [Array]::Copy($buffer, $tmp, $readCount)
+  $buffer = $tmp
+}
+
+# Format as hex view
+$buffer |Format-Hex
