@@ -12,7 +12,7 @@ $url6 = "https://www.winitor.com/tools/pestudio/current/pestudio.zip"
 $folder6 = "$env:temp\Pestudio"
 $url7 = "https://github.com/winsiderss/si-builds/releases/download/3.0.5568/systeminformer-3.0.5568-setup.exe"
 $folder7 = "$env:temp\ProcHacker"
-$url8 = "https://www.7-zip.org/a/7z2201-x64.exe"
+$url8 = "https://sourceforge.net/projects/sevenzip/files/latest/download"
 $folder8 = "$env:temp\7z"
 $url9 = "https://github.com/hasherezade/mal_unpack/releases/download/0.9.5/mal_unpack64.zip"
 $folder9 = "$env:temp\malunpack"
@@ -52,6 +52,8 @@ $url26 = "https://www.osforensics.com/downloads/VolatilityWorkbench.zip"
 $folder26 = "$env:temp\volatility"
 $url27 = "https://github.com/JPCERTCC/Windows-Symbol-Tables/archive/refs/heads/main.zip"
 $folder27 = "$env:temp\windowssymbols"
+$url28 = "https://github.com/CapacitorSet/box-js/archive/refs/heads/master.zip"
+$folder28 = "$env:temp\boxjs"
 $WshShell = New-Object -comObject WScript.Shell
 $Shortcut = $WshShell.CreateShortcut("$Home\Desktop\Tools.lnk")
 $Shortcut.TargetPath = "C:\Users\%USERNAME%\appdata\local\temp"
@@ -195,6 +197,12 @@ else {
 New-Item -Path "$env:temp\" -Name "volatility" -ItemType "directory"
 Invoke-WebRequest  $url26 -OutFile "$env:Temp\volatility\volatility.zip"
 Expand-Archive -LiteralPath "$folder26\volatility.zip" -DestinationPath "$folder26\volatility\"
+}
+if (Test-Path -Path $folder28) { Write-Host "boxjs directory already exists, skipping" }
+else {
+New-Item -Path "$env:temp\" -Name "boxjs" -ItemType "directory"
+Invoke-WebRequest  $url27 -OutFile "$env:Temp\boxjs\boxjs.zip"
+Expand-Archive -LiteralPath "$folder27\boxjs.zip" -DestinationPath "$folder27\boxjs\"
 }
 $title    = 'Would you like to download windows symbol tables?'
 $question = 'Are you sure you want to proceed?'
