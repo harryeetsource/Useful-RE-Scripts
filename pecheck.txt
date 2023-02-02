@@ -1,0 +1,1 @@
+python .\pecheck.py -g 0x00052f00,0x4BC000 -x "E:\sandra\WER.a67c8711-f7bc-4bde-931e-c7e731b816b6_trimmed.tmp" | Format-hex | Out-file .\test2.exe | certutil.exe -f -decodehex 
