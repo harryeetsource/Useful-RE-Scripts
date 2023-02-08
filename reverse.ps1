@@ -20,8 +20,8 @@ $url10 = "https://out7.hex-rays.com/files/idafree77_windows.exe"
 $folder10 = "$env:temp\IDA"
 $url11 = "https://www.dependencywalker.com/depends22_x64.zip"
 $folder11 = "$env:temp\Depends"
-$url12 = "https://github.com/dnSpy/dnSpy/releases/download/v6.1.8/dnSpy-net-win64.zip"
-$folder12 = "$env:temp\dnspy"
+$url12 = "https://github.com/icsharpcode/ILSpy/releases/download/v8.0-preview3/ILSpy_Installer_8.0.0.7246-preview3.msi"
+$folder12 = "$env:temp\ilspy"
 $url13 = "https://github.com/harryeetsource/sysinternals/archive/refs/heads/main.zip"
 $folder13 = "$env:temp\sysinternals"
 $url14 = "https://download.microsoft.com/download/9/3/F/93FCF1E7-E6A4-478B-96E7-D4B285925B00/vc_redist.x64.exe"
@@ -119,9 +119,9 @@ Invoke-WebRequest  $url11 -OutFile "$env:Temp\Depends\Depends.zip"
 Expand-Archive -LiteralPath "$env:temp\depends\depends.zip" -DestinationPath "$env:temp\depends\depends\"} 
 if (Test-Path -Path $folder12) { Write-Host "dnspy directory already exists, skipping" }
 else {
-New-Item -Path "$env:temp\" -Name "dnspy" -ItemType "directory"
-Invoke-WebRequest  $url12 -OutFile "$env:Temp\dnspy\dnspy.zip"
-Expand-Archive -LiteralPath "$env:temp\dnspy\dnspy.zip" -DestinationPath "$env:temp\dnspy\dnspy\"} 
+New-Item -Path "$env:temp\" -Name "ilspy" -ItemType "directory"
+Invoke-WebRequest  $url12 -OutFile "$env:Temp\ilspy\ilspy.msi"
+Start-process "$env:temp\ilspy\ilspy.msi"} 
 if (Test-Path -Path $folder13) { Write-Host "sysinternals directory already exists, skipping" }
 else {
 New-Item -Path "$env:temp\" -Name "sysinternals" -ItemType "directory"
